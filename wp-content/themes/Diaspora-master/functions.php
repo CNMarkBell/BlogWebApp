@@ -132,7 +132,7 @@ function tz_likeThis($post_id,$action = 'get') {
 	
 	
 	case 'update':
-		if(isset($_COOKIE["like_" + $post_id])) {
+		if(isset($_COOKIE["like_".$post_id])) {
 			return;
 		} //if
 		
@@ -146,7 +146,7 @@ function tz_likeThis($post_id,$action = 'get') {
 		$currentValue[0]++;
 		update_post_meta($post_id, '_likes', $currentValue[0]);
 		
-		setcookie("like_" + $post_id, $post_id,time()*20, '/');
+		setcookie("like_".$post_id, $post_id,time()*20, '/');
 	break;
 
 	} //switch
@@ -162,7 +162,7 @@ function tz_printLikes($post_id) {
 		$who = ' person likes ';
 	} //if
 	
-	if(isset($_COOKIE["like_" + $post_id])) {
+	if(isset($_COOKIE["like_".$post_id])) {
 
 	print '<a href="javascript:;" class="likeThis active" id="like-'.$post_id.'"><span class="icon-like"></span><span class="count">'.$likes.'</span></a>';
 		return;
