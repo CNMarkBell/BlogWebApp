@@ -54,7 +54,8 @@ add_action('save_post', 'clear_db_cache_archives_list'); // 新发表文章/修�
 function count_words ($text) {   
     global $post;   
     if ( '' == $text ) {   
-        $text = $post->post_content;   
+        $text = $post->post_content;
+        $output='';
         if (mb_strlen($output, 'UTF-8') < mb_strlen($text, 'UTF-8')) $output .= '' . mb_strlen(preg_replace('/\s/','',html_entity_decode(strip_tags($post->post_content))),'UTF-8') . '';   
         return $output;   
     }   
